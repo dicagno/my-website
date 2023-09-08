@@ -123,6 +123,14 @@ export default async function decorate(block) {
       });
     }
 
+    // relative urls
+    const links = document.querySelectorAll('a');
+    for (const link of links) {
+      if (link.href.startsWith('https://albertodicagno.com') || link.href.startsWith('https://www.albertodicagno.com')) {
+        link.href = link.href.replace("https://albertodicagno.com", "").replace("https://www.albertodicagno.com", "");
+      }
+    }
+
     // hamburger for mobile
     const hamburger = document.createElement('div');
     hamburger.classList.add('nav-hamburger');
