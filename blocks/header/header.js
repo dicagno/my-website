@@ -124,8 +124,9 @@ export default async function decorate(block) {
     }
 
     // relative urls
-    const links = document.querySelectorAll('a');
+    const links = nav.querySelectorAll('a');
     for (const link of links) {
+      console.log(link)
       if (link.href.startsWith('https://albertodicagno.com') || link.href.startsWith('https://www.albertodicagno.com')) {
         link.href = link.href.replace("https://albertodicagno.com", "").replace("https://www.albertodicagno.com", "");
       }
