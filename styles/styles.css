@@ -17,12 +17,14 @@
   --background-color: #fff;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
+  --border-color: #ccc;
   --text-color: #000;
+  --higlight-text-background-color: #000000;
 
   /* fonts */
-  --body-font-family: cabin, roboto-fallback;
-  --heading-font-family: var(--body-font-family);
-  --fixed-font-family: cabin, menlo, consolas, 'Liberation Mono', monospace;
+  --body-font-family: "greycliff-cf", sans-serif;
+  --heading-font-family: "greycliff-cf", sans-serif;
+  --fixed-font-family: "greycliff-cf", sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -71,6 +73,13 @@ body {
   display: none;
 }
 
+p::selection,
+h1::selection, h2::selection, h3::selection,
+h4::selection, h5::selection, h6::selection {
+  color: var(--background-color);
+  background-color: var(--higlight-text-background-color);
+}
+
 body.appear {
   display: unset;
 }
@@ -82,7 +91,7 @@ header {
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.25;
   margin-top: 1em;
   margin-bottom: .5em;
@@ -132,10 +141,11 @@ main pre {
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
+  border-bottom: 2px solid transparent;
 }
 
 a:hover {
-  text-decoration: underline;
+  border-bottom: 2px solid black;
   color: var(--link-hover-color);
 }
 
@@ -157,7 +167,7 @@ a.button:any-link, button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {

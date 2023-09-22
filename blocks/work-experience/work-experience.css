@@ -1,15 +1,43 @@
-.work-experience > ul {
+.work-experience {
+  border: unset;
+}
+
+.work-experience>ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: auto;
   grid-gap: 16px;
 }
 
-.work-experience > ul > li {
-  border: 1px solid var(--highlight-background-color);
+.work-experience>ul>li:not(:first-child) {
+  border-top: 1px solid var(--border-color);
   background-color: var(--background-color)
+}
+
+.work-experience>ul>li a {
+  border: 2px solid black!important;
+  background: unset!important;
+  color: black!important;
+}
+
+.work-experience>ul>li a::after {
+  content: ' >';
+}
+
+.work-experience>ul>li a:hover {
+  border: 2px solid black!important;
+  background: black!important;
+  color: white!important;
+}
+
+.work-experience>ul>li {
+  padding: 2rem;
+}
+
+.work-experience>ul>li img {
+  max-width: 20rem;
 }
 
 .work-experience .work-experience-card-body {
@@ -20,12 +48,6 @@
   line-height: 0;
 }
 
-.work-experience .work-experience-card-body > *:first-child {
+.work-experience .work-experience-card-body>*:first-child {
   margin-top: 0;
-}
-
-.work-experience > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
 }
