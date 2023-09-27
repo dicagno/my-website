@@ -1,0 +1,42 @@
+.snippet {
+  font-family: monospace;
+  padding: 2rem;
+  font-size: var(--body-font-size-s);
+  max-width: 1200px;
+  border: 1px solid;
+  margin: auto;
+  background: unset !important;
+  background-color: unset !important;
+  white-space: pre;
+}
+
+.snippet code {
+  margin: 0;
+  border: 1px solid #ccc;
+  background: unset !important;
+  background-color: unset !important;
+}
+
+.btn-copy {
+  color: black;
+  border: 2px solid black !important;
+  background: unset !important;
+}
+
+.btn-copy:hover {
+  color: white;
+  background: black !important;
+}
+
+.div-copy {
+  align-items: center;
+  gap: 1rem;
+  justify-items: end;
+  z-index: 10000;
+  display: flex;
+  flex-direction: row;
+}
+
+.span-copy {
+  transition: opacity 1s ease-out;
+}

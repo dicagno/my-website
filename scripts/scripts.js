@@ -10,6 +10,7 @@ import {
   decorateTemplateAndTheme,
   waitForLCP,
   loadBlocks,
+  loadScript,
   loadCSS,
 } from './lib-franklin.js';
 
@@ -74,6 +75,7 @@ export function decorateMain(main) {
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
+  loadScript(`${window.hlx.codeBasePath}/scripts/highlight.min.js`);
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
@@ -109,6 +111,7 @@ async function loadLazy(doc) {
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+  loadCSS(`${window.hlx.codeBasePath}/styles/highlight-atom-one-dark.min.css`);
   loadFonts();
 
   sampleRUM('lazy');
