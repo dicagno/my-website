@@ -4,6 +4,26 @@ const copyCode = async (code) => {
   await navigator.clipboard.writeText(code)
 }
 
+function notifyCopyCode(text) {
+  const elements = document.querySelectorAll('.animate-fade-in');
+
+  for (const element of elements) {
+    // First, fade in the element.
+    element.style.opacity = '1';
+
+    // Once the element has faded out, change the text and fade it back in.
+    element.addEventListener('transitionend', function onTransitionEnd() {
+      element.removeEventListener('transitionend', onTransitionEnd);
+
+      // Change the inner text.
+      element.innerText = text;
+
+      // Fade in the element.
+      element.style.opacity = '0';
+    });
+  }
+}
+
 /**
  * loads and decorates the footer
  * @param {Element} block The footer block element
@@ -21,25 +41,23 @@ export default async function decorate(block) {
 
   btnCopy.classList.add('btn-copy');
   divCopy.classList.add('div-copy');
-  spanCopy.classList.add('span-copy');
+  spanCopy.classList.add('span-copy', 'animate-fade-in');
   btnCopy.innerText = 'Copy code';
   divCopy.appendChild(btnCopy);
   divCopy.appendChild(spanCopy);
   block.appendChild(divCopy);
 
-  const hl = hljs.highlight(content, {language: 'javascript'});
+  const hl = hljs.highlight(content, { language: 'javascript' });
 
   block.appendChild(divCode);
   divCode.innerHTML = hl.value
 
   btnCopy.addEventListener('click', async (evt) => {
-    spanCopy.style.opacity = 1;
-    try {    
+    try {
       await copyCode(content);
-      spanCopy.innerText = '✅'
-    } catch(e) {
-      spanCopy.innerText = '🛑'
+      notifyCopyCode('✅')
+    } catch (e) {
+      notifyCopyCode('🛑')
     }
-    spanCopy.style.opacity = 0;
   });
 }
