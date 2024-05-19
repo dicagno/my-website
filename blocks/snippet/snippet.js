@@ -29,7 +29,8 @@ function notifyCopyCode(text) {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  const cfg = readBlockConfig(block);
+  const { language } = readBlockConfig(block);
+  console.log('language', language)
   const content = block.children[0].children[0].textContent.trim();
 
   block.innerHTML = ``;
@@ -47,7 +48,7 @@ export default async function decorate(block) {
   divCopy.appendChild(spanCopy);
   block.appendChild(divCopy);
 
-  const hl = hljs.highlight(content, { language: 'javascript' });
+  const hl = hljs.highlight(content, { language });
 
   block.appendChild(divCode);
   divCode.innerHTML = hl.value

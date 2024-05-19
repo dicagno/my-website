@@ -187,11 +187,29 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
+header nav a:any-link {
+  padding: 0
+}
+
+header nav a:hover {
+}
+
 @media (min-width: 900px) {
   header nav .nav-sections {
     display: block;
     visibility: visible;
     white-space: nowrap;
+  }
+
+  header nav a:any-link {
+    padding: 0.5rem 1.5rem;
+  }
+  
+  header nav a:hover {
+    background-color: unset;
+    background-color: black;
+    color: white;
+    text-decoration: none;
   }
 
   header nav[aria-expanded="true"] .nav-sections {
