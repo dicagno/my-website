@@ -16,17 +16,17 @@
   background-color: var(--background-color)
 }
 
-.work-experience>ul>li a {
+.work-experience>ul>li a.button {
   border: 2px solid black!important;
   background: unset!important;
   color: black!important;
 }
 
-.work-experience>ul>li a::after {
+.work-experience>ul>li a.button::after {
   content: ' >';
 }
 
-.work-experience>ul>li a:hover {
+.work-experience>ul>li a.button:hover {
   border: 2px solid black!important;
   background: black!important;
   color: white!important;
